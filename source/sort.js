@@ -1,18 +1,20 @@
 'use strict';
 
-function sort(text) {
-    var textcpy = text.trim();
-    if (textcpy === '')
+const sort = (text) => {
+    // trim spaces at the beginning and at the end
+    // of passed text
+    var trimmedText = text.trim();
+    if (trimmedText === '')
         return text;
-    var a = textcpy.split(/\s+/);
+    var a = trimmedText.split(/\s+/);
     var collator = new Intl.Collator();
-    a = a.map(function (value) {
-        value = value.toLowerCase();
-        value = value.split("");
-        value = value.sort(collator.compare);
+    a = a.map((value) => {
+        value = value.toLowerCase()
+            .split('')
+            .sort(collator.compare);
         value[0] = value[0].toUpperCase();
         return value.join('');
     });
-    a = a.sort(collator.compare);
-    return a.join(' ');
+    a = a.sort(collator.compare).join(' ');
+    return a;
 }
