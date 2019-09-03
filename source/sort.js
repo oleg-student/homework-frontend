@@ -16,4 +16,4 @@ const sort = (text) => {
         return value.join('');
     }).sort(collator.compare)
         .join(' ');
-}
+};
