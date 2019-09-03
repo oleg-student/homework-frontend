@@ -2,15 +2,10 @@
 
 function sort(text) {
     var textcpy = text.trim();
+    if (textcpy === '')
+        return text;
     var a = textcpy.split(/\s+/);
-
-    if (a.length === 0)
-        return text;
-    else if (a[0] === '')
-        return text;
-
     var collator = new Intl.Collator();
-
     a = a.map(function (value) {
         value = value.toLowerCase();
         value = value.split("");
