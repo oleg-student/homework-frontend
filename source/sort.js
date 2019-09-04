@@ -4,11 +4,12 @@ const sort = (text) => {
     // trim spaces at the beginning and at the end
     // of passed text
     const trimmedText = text.trim();
-    if (trimmedText === '')
+    if (trimmedText === '') {
         return text;
-    const result = trimmedText.split(/\s+/);
+    }
+    const words = trimmedText.split(/\s+/);
     const collator = new Intl.Collator();
-    return result.map((value) => {
+    return words.map((value) => {
         value = value.toLowerCase()
             .split('')
             .sort(collator.compare);
